@@ -102,4 +102,21 @@ console.log(foodId)
 
    }
    
-export {addFood ,listFood, removeFood, editFood}
+   const listFoodById = async (req, res) => {
+    try {
+      const foodId = req.params.id; // Retrieve the food ID from request parameters
+      const food = await foodModel.findById(foodId); // Find food item by ID in the database
+  
+      if (!food) {
+        return res.status(404).json({ success: false, message: "Food not found" });
+      }
+  
+      res.json({ success: true, data: food });
+  
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ success: false, message: "Server error" });
+    }
+  };
+  
+export {addFood ,listFood, removeFood, editFood, listFoodById}
