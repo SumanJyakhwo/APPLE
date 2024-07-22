@@ -1,17 +1,18 @@
 .food-display {
   margin-top: 30px;
-  padding: 0 150px;
+  padding: 0 5%;
 }
 .food-display h2 {
-  font-size: max(2vw, 24px);
+  font-size: max(4vw, 24px);
   font-weight: 600;
+  text-align: center;
 }
 .food-display-list {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   margin-top: 30px;
-  gap: 40px;
-  row-gap: 50px;
+  gap: 20px;
+  row-gap: 30px;
 }
 
 .food-item {
@@ -24,11 +25,12 @@
 }
 .food-item-image {
   width: 100%;
-  height: 15vw;
+  height: 30vw;
+  max-height: 200px;
   border-radius: 15px 15px 0px 0px;
 }
 .food-item-info {
-  padding: 20px;
+  padding: 10px;
 }
 .food-item-name-rating {
   display: flex;
@@ -37,18 +39,18 @@
   margin-bottom: 10px;
 }
 .food-item-name-rating p {
-  font-size: 20px;
+  font-size: max(1vw, 18px);
   font-weight: 500;
 }
 .food-item-name-rating img {
-  width: 70px;
+  width: 50px;
 }
 .food-item-desc {
   color: #676767;
-  font-size: 16px;
+  font-size: max(1vw, 14px);
 }
 .food-item-price {
-  font-size: 22px;
+  font-size: max(1vw, 18px);
   font-weight: 500;
   color: tomato;
   margin: 10px 0px;
@@ -57,9 +59,9 @@
   position: relative;
 }
 .food-item-img-container .add {
-  width: 60px;
+  width: 50px;
   position: absolute;
-  bottom: 140px;
+  bottom: 10px;
   right: 15px;
   cursor: pointer;
   border-radius: 50%;
@@ -67,7 +69,7 @@
 }
 .food-item-counter {
   position: absolute;
-  bottom: 140px;
+  bottom: 10px;
   right: 15px;
   gap: 10px;
   align-items: center;
@@ -79,4 +81,34 @@
 }
 .food-item-counter .add1 {
   width: 40px;
+}
+
+@media (max-width: 750px) {
+  .food-display {
+    padding: 0 20px;
+  }
+  .food-display-list {
+    gap: 20px;
+    row-gap: 20px;
+  }
+  .food-item-image {
+    height: 40vw;
+    max-height: none;
+  }
+  .food-item-info {
+    padding: 10px;
+  }
+  .food-item-name-rating p {
+    font-size: max(5vw, 16px);
+  }
+  .food-item-desc {
+    font-size: max(4vw, 12px);
+  }
+  .food-item-price {
+    font-size: max(5vw, 18px);
+  }
+  .food-item-img-container .add,
+  .food-item-counter .add1 {
+    width: 40px;
+  }
 }

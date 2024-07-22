@@ -33,3 +33,14 @@
 .place-order .card-total button {
   margin-top: 30px;
 }
+
+@media (max-width: 768px) {
+  .place-order {
+    padding: 0 10vw; /* Adjusted padding for medium-sized screens */
+  }
+  .place-order {
+    display: block; /* Display as block for up and down layout */
+    margin-top: 100px;
+    padding: 0 5vw;
+  }
+}

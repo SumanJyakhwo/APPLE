@@ -3,8 +3,10 @@ import "./FoodDisplay.css";
 import { StoreContext } from "../../context/StoreContext";
 import { assets } from "../../assets/assets";
 
+
 const FoodDisplay = ({category}) => {
-  const { food_list, cartItems, addToCart, removeFromCart } = useContext(StoreContext);
+  const { food_list, cartItems, addToCart, removeFromCart,url } = useContext(StoreContext);
+
   console.log("🚀 ~ FoodDisplay ~ food_list:", food_list);
 
   return (
@@ -17,7 +19,8 @@ const FoodDisplay = ({category}) => {
           .map(item => (
             <div key={item._id} className="food-item">
             <div className="food-item-img-container">
-              <img className="food-item-image" src={item.image} alt={item.name} />
+              <img className="food-item-image" src={url +"/images/"+ item.image} alt={item.name} />
+              
               {!cartItems[item._id] ? (
                 <img
                   className="add"

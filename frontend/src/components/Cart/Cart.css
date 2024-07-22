@@ -1,6 +1,6 @@
 .cart {
   margin-top: 100px;
-  padding: 0px 150px;
+  padding: 0px 50px;
 }
 .cart-items-title {
   display: grid;
@@ -26,7 +26,7 @@
 }
 .cart-bottom {
   margin-top: 80px;
-  padding: 0px 150px;
+  padding: 0px 50px;
   display: flex;
   justify-content: space-between;
   gap: max(12vw, 20px);
@@ -85,9 +85,17 @@
 }
 @media (max-width: 750px) {
   .cart-bottom {
-    flex-direction: column-reverse;
+    display: block;
+    gap: 10px;
   }
-  .cart-promocode {
-    justify-content: start;
+
+  .cart-items-item {
+    margin: 5px 0px;
+    color: black;
+    display: flex;
+    gap: 10px;
+  }
+  .cart-items-title {
+    font-size: 12px;
   }
 }

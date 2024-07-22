@@ -1,13 +1,14 @@
 .header {
   height: 34vw;
-  width: 1050px;
-  margin: 0px 150px 0px 150px; /* Removed duplicate margin property and added unit */
+  max-height: 400px; /* Limit height on larger screens */
+  width: 100%;
+  margin: 0 auto;
   background: url("/header.png") no-repeat center center;
   background-size: cover;
   position: relative;
   box-sizing: border-box;
   border-radius: 20px;
-  /* padding: 0 150px; */
+  overflow: hidden; /* Prevents content from overflowing */
 }
 
 .header-contents {
@@ -19,17 +20,24 @@
   max-width: 50%;
   bottom: 20%;
   left: 6vw;
+  right: 6vw; /* Center content horizontally */
   animation: fadeIn 3s;
 }
+
 .header-contents h2 {
   font-weight: 500;
   color: white;
   font-size: max(4vw, 22px);
+  text-align: center;
 }
+
 .header-contents p {
   color: white;
-  font-size: 20px;
+  font-size: max(2.5vw, 16px); /* Adjust font size for smaller screens */
+  text-align: center;
+  padding: 0 5%; /* Add padding for better readability */
 }
+
 .header-contents button {
   border: none;
   color: #747474;
@@ -38,5 +46,35 @@
   background-color: white;
   font-size: max(1vw, 13px);
   border-radius: 50px;
-  margin-right: auto;
+  margin-top: 1vw; /* Add margin-top for spacing */
+}
+
+@media (max-width: 750px) {
+  .header {
+    height: 80vw; /* Adjust height for smaller screens */
+    max-height: none;
+    width: 100%;
+    margin: 0;
+    border-radius: 0; /* Remove border-radius for full-width */
+  }
+
+  .header-contents {
+    max-width: 90%;
+    bottom: 10%;
+    left: 5%;
+    right: 5%;
+  }
+
+  .header-contents h2 {
+    font-size: max(6vw, 20px);
+  }
+
+  .header-contents p {
+    font-size: max(4vw, 14px);
+  }
+
+  .header-contents button {
+    padding: 2vw 4vw;
+    font-size: max(2vw, 12px);
+  }
 }
