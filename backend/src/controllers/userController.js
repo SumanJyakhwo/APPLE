@@ -61,6 +61,7 @@ const registerUser = async (req, res) => {
       name: name,
       email: email,
       password: hashedPassword,
+      cartData:{},
     });
 
     const user = await newUser.save();

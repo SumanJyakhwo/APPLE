@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
 
 export const connectDB = async ()=>{
-  await mongoose.connect('mongodb+srv://jyxsuman:suman5656@cluster0.gahu0dw.mongodb.net/hotelSystem').then(()=>console.log("DB connected"))
+  await mongoose.connect('mongodb+srv://sngrmbhandari:oB9XULKxZDf836Ca@cluster0.lvoozqy.mongodb.net/food-del').then(()=>console.log("DB connected"))
 }

@@ -17,7 +17,7 @@ cartData:{
   type:Object,
   default:{},
 }
-},{timestamps:true})
+},{minimize:false})
 
 const User= mongoose.model("User",userSchema) || mongoose.model.User
 export default User;
