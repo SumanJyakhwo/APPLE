@@ -2,6 +2,7 @@ import foodModel from "../models/foodModel.js"
 
 import fs from "fs"
 
+
 //add food item
 const addFood = async(req, res) => {
     let image_filename = `${req.file.filename}`;
@@ -57,50 +58,32 @@ const removeFood = async(req, res) => {
     }
    }
 
-   // edit food item
-const editFood = async(req, res) => {
+   const editFood = async (req, res) => {
+    const foodId = req.params.id;
+    
     try {
-        const foodId = req.params.id; // Assuming id is passed as a URL parameter
-console.log(foodId)
-        // Check if food with given id exists
-        const existingFood = await foodModel.findById(foodId);
-        if (!existingFood) {
-            return res.status(404).json({ success: false, message: "Food not found" });
-        }
-
-        // Prepare updates based on request body
-        const updates = {
+        const updatedFood = {
             name: req.body.name,
             description: req.body.description,
             price: req.body.price,
-            category: req.body.category,
+            category: req.body.category
         };
 
-        // Handle image update if a new image is uploaded
-        if (req.file) {
-            // Remove old image from uploads directory
-            fs.unlink(`uploads/${existingFood.image}`, (err) => {
-                if (err) console.log(err);
-            });
-            // Update image filename
-            updates.image = req.file.filename;
+       
+
+        const updatedFoodItem = await foodModel.findByIdAndUpdate(foodId, updatedFood, { new: true });
+
+        if (!updatedFoodItem) {
+            return res.status(404).json({ success: false, message: "Food not found" });
         }
 
-        // Update the food item in database
-        const updatedFood = await foodModel.findByIdAndUpdate(foodId, updates, { new: true });
+        res.json({ success: true, message: "Food updated successfully", data: updatedFoodItem });
 
-        // Check if update was successful
-        if (!updatedFood) {
-            return res.status(500).json({ success: false, message: "Failed to update food item" });
-        }
-
-        res.json({ success: true, message: "Food updated successfully", data: updatedFood });
     } catch (error) {
-        console.log(error);
-        res.status(500).json({ success: false, message: "Error updating food item" });
+        console.error(error);
+        res.status(500).json({ success: false, message: "Server error" });
     }
-
-   }
+};
    
    const listFoodById = async (req, res) => {
     try {
