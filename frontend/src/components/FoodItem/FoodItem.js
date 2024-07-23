@@ -1,11 +1,11 @@
 // import React from "react";
 // import "./FoodItem.css";
 
-// const FoodItem = ({ name, price, description, image }) => {
+// const FoodItem = ({id, name, price, description, image }) => {
 //   return (
 //     <div className="food-item">
 //       <div className="food-item-img-container">
-//         <img className="food-item-image" src={image} alt={name} />
+//         <img className="food-item-image" src={url+"/image/"+image} alt={name} />
 //         <div className="food-item-info">
 //           <div className="food-item-name-rating">
 //             <p>{name}</p>
